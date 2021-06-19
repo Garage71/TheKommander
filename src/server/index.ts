@@ -1,4 +1,21 @@
+import Koa from "koa";
+import Static from "koa-static";
+import Router from "koa-router";
+import Logger from "koa-logger";
+import BodyParser from "koa-bodyparser";
 import * as fs from "fs/promises";
 import { hello } from "./module1";
-
+import path from "node:path";
+import open from "open";
+const port = process.env.PORT || 3000;
+const app = new Koa();
+const router = new Router();
+const clientDirPath = path.join(path.resolve(), "dist/client");
 hello();
+app.use(Logger());
+app.use(BodyParser());
+app.use(Static(clientDirPath));
+app.use(router.routes());
+app.listen(port);
+open(`http://localhost:${port}`);
+export default app;
