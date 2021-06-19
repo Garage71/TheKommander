@@ -1,0 +1,18 @@
+{
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index",
+  "scripts": {
+    "start": "node --experimental-specifier-resolution=node dist/index.js",
+    "build": "tsc -d"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.0",
+    "@types/node": "^14.14.37",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "koa": "^2.13.1"
+  }
+}
