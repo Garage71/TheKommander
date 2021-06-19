@@ -7,7 +7,7 @@ import * as fs from "fs/promises";
 import { hello } from "./module1";
 import path from "node:path";
 import open from "open";
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const app = new Koa();
 const router = new Router();
 const clientDirPath = path.join(path.resolve(), "dist/client");
