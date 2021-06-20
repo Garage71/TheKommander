@@ -1,8 +1,16 @@
-import { FunctionComponent } from "react";
+import { FC, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { useDispatch } from "react-redux";
+import { getDrives } from "./infrastructure/actions/actions";
 
-const App: FunctionComponent<{}> = () => {
+const App: FC<{}> = () => {
+  const dipatch = useDispatch();
+
+  useEffect(() => {
+    dipatch(getDrives());
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
